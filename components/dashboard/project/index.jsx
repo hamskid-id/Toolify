@@ -14,6 +14,7 @@ import { motion } from 'framer-motion'
 import { ProjectCard } from './ProjectCard'
 import { ProjectDescription } from '../shared/ProjectDescription'
 import { useState } from 'react'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 const projectStatuses = [
   { id: 'all', label: 'All Projects', icon: Layers },
@@ -251,7 +252,7 @@ export const AllProjects = () => {
         </div>
 
         {/* Status Tabs - Redesigned */}
-        <div className='bg-white p-1 rounded-md inline-flex mb-6'>
+        <ScrollArea className='whitespace-nowrap bg-white p-1 rounded-md inline-flex mb-6 w-full flex-nowrap'>
           {projectStatuses.map((tab) => (
             <button
               key={tab.id}
@@ -266,7 +267,7 @@ export const AllProjects = () => {
               <span>{tab.label}</span>
             </button>
           ))}
-        </div>
+        </ScrollArea>
 
         {/* Projects Grid */}
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-6'>

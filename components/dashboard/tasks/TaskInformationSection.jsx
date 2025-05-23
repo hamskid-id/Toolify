@@ -195,6 +195,7 @@ export const TaskInformationSection = ({ task }) => {
                 }
               }}
             />
+            <div className='flex gap-2 items-center'>
             <button
               className='rounded-md p-3 text-gray-600 bg-[#FFE8C8] hover:bg-[#FFD8A8] transition-colors duration-200'
               onClick={handleSendMessage}
@@ -206,6 +207,7 @@ export const TaskInformationSection = ({ task }) => {
                 size={16}
                 className='text-gray-600 hover:text-blue-800'
               />
+            </div>
             </div>
           </div>
         </div>
