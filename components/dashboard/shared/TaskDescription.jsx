@@ -57,7 +57,7 @@ export const TasksDescription = ({ tasks }) => {
   }
 
   return (
-    <div className='md:flex hidden flex-col bg-white p-6 rounded-md h-full'>
+    <div className='flex flex-col bg-white p-6 rounded-md h-full'>
       {/* Task Header */}
       <div className='flex justify-between items-start mb-6'>
         <div>

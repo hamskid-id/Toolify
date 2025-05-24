@@ -91,7 +91,7 @@ export const AddProjectForm = ({onClose}) => {
               placeholder={'Project Title'}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className='w-full px-2 py-2 text-sm border-none focus:outline-none focus:ring-0'
+              className='w-full px-2 py-2 text-sm border border-gray-300 rounded-sm focus:outline-none focus:ring-0'
             />
           </div>
 
@@ -101,7 +101,7 @@ export const AddProjectForm = ({onClose}) => {
               placeholder='Add description...'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className='w-full px-2 py-2 text-sm border-none focus:outline-none focus:ring-0 min-h-24 resize-none bg-gray-50 rounded-md'
+              className='w-full px-2 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-0 min-h-24 resize-none bg-gray-50 rounded-sm'
             />
           </div>
 

@@ -298,7 +298,7 @@ export const AllTasks = () => {
   if (!isClient) {
     return (
       <DashboardLayout>
-        <div className='bg-[ghostWhite] py-6 px-4 md:px-8'>
+        <div className='bg-[ghostWhite] py-6 px-3 md:px-8'>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-6'>
             <div className='space-y-6 bg-white p-4 rounded-md'>
               {statusGroups.map((status) => {
@@ -343,7 +343,7 @@ export const AllTasks = () => {
 
   return (
     <DashboardLayout>
-      <div className='bg-[ghostWhite] py-6 px-4 md:px-8'>
+      <div className='bg-[ghostWhite] py-6 px-3 md:px-8'>
         {/* Breadcrumb */}
         <div className='flex items-center text-sm text-gray-500'>
           <Link href='/dashboard' className='hover:text-gray-700'>
@@ -361,7 +361,7 @@ export const AllTasks = () => {
         </div>
 
         {/* View Tabs */}
-        <div className='bg-white p-1 rounded-md inline-flex mb-6'>
+        <div className='bg-white p-1 rounded-md inline-flex mb-6 w-full'>
           {viewTypes.map((tab) => (
             <button
               key={tab.id}

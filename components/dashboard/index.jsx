@@ -6,6 +6,8 @@ import {
   AlertTriangle,
   PlusCircle,
   Ellipsis,
+  UserPlus,
+  Plus,
 } from 'lucide-react'
 import DasboardLayout from './layout'
 import { Text } from '../shared/Text'
@@ -18,13 +20,17 @@ import { ProjectCard } from './home/ProjectCard'
 import { ModalWrapper } from '../custom-ui/Modal'
 import { useState } from 'react'
 import { AddProjectForm } from './project/AddProjectForm'
+import { Button } from '../ui/button'
+import { useIsMobile } from '@/hooks/use-mobile'
+import { cn } from '@/lib/utils'
 
 export const Dashboard = () => {
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => setOpenModal(true)
+  const isMobile = useIsMobile()
   return (
     <DasboardLayout>
-      <div className='space-y-6 bg-[ghostWhite] py-6 px-4'>
+      <div className='space-y-6 bg-[ghostWhite] py-6 md:px-4 px-3'>
         <div className='flex flex-wrap justify-between items-start mb-4 gap-4'>
           <div className='flex flex-col gap-2'>
             <Text style='font-[600] text-[18px] leading-[24px]'>
@@ -35,18 +41,16 @@ export const Dashboard = () => {
               <span className='font-[400] ms-2'>26/11/2024 14:39:58</span>
             </Text>
           </div>
-          <div
+          <Button
             onClick={handleOpenModal}
-            className='bg-white md:hidden block fixed bottom-8 right-4 border-dotted border-[#FF7850] border-2 py-2 rounded-md flex items-center justify-center text-center text-sm text-[#FF7850] w-fit px-4 cursor-pointer ms-auto'
+            className={cn(
+              'flex  items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors text-md',
+              isMobile && 'fixed bottom-20 right-4'
+            )}
           >
-            <Text>+ Create Project</Text>
-          </div>
-          <div
-            onClick={handleOpenModal}
-            className='bg-white md:block hidden border-dotted border-[#FF7850] border-2 py-2 rounded-md flex items-center justify-center text-center text-sm text-[#FF7850] w-fit px-4 cursor-pointer ms-auto'
-          >
-            <Text>+ Create Project</Text>
-          </div>
+            <Plus className='w-4 h-4' />
+            <span className='text-sm'>Create Project</span>
+          </Button>
         </div>
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
           <StatCard title='Hours this week' amount='32/hrs' icon={Clock} />
@@ -56,7 +60,7 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      <div className='grid md:grid-cols-3 grid-cols-1 gap-6 p-4'>
+      <div className='grid md:grid-cols-3 grid-cols-1 gap-6 py-4 md:px-4 px-3'>
         <div className='space-y-4'>
           <div className='flex justify-between items-center'>
             <Text style='text-lg font-medium'>My Tasks</Text>

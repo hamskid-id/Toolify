@@ -195,12 +195,12 @@ export const TaskInformationSection = ({ task }) => {
                 }
               }}
             />
-            <div className='flex gap-2 items-center'>
+            <div className='flex items-center'>
             <button
-              className='rounded-md p-3 text-gray-600 bg-[#FFE8C8] hover:bg-[#FFD8A8] transition-colors duration-200'
+              className='rounded-md p-2 text-gray-600 bg-[#FFE8C8] hover:bg-[#FFD8A8] transition-colors duration-200'
               onClick={handleSendMessage}
             >
-              <Send className='w-5 h-5 cursor-pointer' />
+              <Send className='w-3 h-3 cursor-pointer text-white' />
             </button>
             <div className='ml-2 cursor-pointer hover:bg-gray-100 p-2 rounded-full transition-colors duration-200'>
               <Paperclip

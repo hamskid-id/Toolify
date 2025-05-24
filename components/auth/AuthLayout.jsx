@@ -15,11 +15,11 @@ const OrSeparator = () => (
 )
 
 const FooterText = ({ footerText, footerLink, footerLinkTitle }) => (
-  <div className='text-center text-lg text-gray-600 '>
+  <div className='text-center text-md text-gray-600 '>
     {footerText}
     <Link
       href={footerLink}
-      className=' ms-2 font-medium text-primary hover:text-primary-500 hover:underline transition-colors'
+      className=' ms-2 font-medium text-md text-primary hover:text-primary-500 hover:underline transition-colors'
     >
       {footerLinkTitle}
     </Link>
@@ -29,7 +29,7 @@ const FooterText = ({ footerText, footerLink, footerLinkTitle }) => (
 const GoogleSignIn = () => (
   <Button className='h-[50px] rounded-sm w-full flex items-center justify-center gap-2 px-4 py-2.5 border border-grey-400 shadow-none bg-white text-gray-700 hover:bg-none'>
     <GoogleSvg />
-    <span className='font-medium text-[19px] text-[#8f8f8f]'>
+    <span className='font-medium text-md text-[#8f8f8f]'>
       Sign in with Google
     </span>
   </Button>
@@ -53,7 +53,7 @@ export const AuthLayout = ({
       >
         {title}
       </Text>
-      <Text as='h1' style='text-lg text-[#8f8f8f] text-center'>
+      <Text as='h1' style='text-md text-[#8f8f8f] text-center'>
         {subTitle}
       </Text>
       {showOAuth && (

@@ -37,12 +37,12 @@ export const InputField = ({
   radioList,
 }) => {
   const inputCnStyle = cn(
-    `md:text-md text-md font-[400] border border-grey-400 shadow-none h-[50px] rounded-sm flex items-center`,
+    `md:text-sm text-sm font-[400] border border-grey-400 shadow-none h-[50px] rounded-sm flex items-center`,
     inputStyle,
     hideTopBorder && 'border-t-0 border-x-0 shadow-none px-0 focus-visible:border-t-0 focus-visible:border-x-0 focus-visible:ring-0'
   )
 
-  const inputLabelStyle = cn(`text-[14px] font-[500]`, labelStyle)
+  const inputLabelStyle = cn(`text-sm font-[500]`, labelStyle)
 
   return (
     <FormField

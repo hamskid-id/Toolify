@@ -70,7 +70,7 @@ export const TaskInformation = () => {
 
   return (
     <DashboardLayout>
-      <div className='bg-[ghostWhite] py-6 px-4 md:px-8'>
+      <div className='bg-[ghostWhite] py-6 px-3 md:px-8'>
         {/* Breadcrumb */}
         <div className='flex items-center text-sm text-gray-500'>
           <Link href='/dashboard' className='hover:text-gray-700'>

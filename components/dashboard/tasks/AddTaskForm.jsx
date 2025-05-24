@@ -155,7 +155,7 @@ export const AddTaskForm = ({
               placeholder={isSubtask ? 'Subtask title' : 'Task title'}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className='w-full px-2 py-2 text-sm border-none focus:outline-none focus:ring-0'
+              className='rounded-sm w-full px-2 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-0'
             />
           </div>
 
@@ -165,7 +165,7 @@ export const AddTaskForm = ({
               placeholder='Add description...'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className='w-full px-2 py-2 text-sm border-none focus:outline-none focus:ring-0 min-h-24 resize-none bg-gray-50 rounded-md'
+              className='w-full px-2 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-0 min-h-24 resize-none bg-gray-50 rounded-sm'
             />
           </div>
 

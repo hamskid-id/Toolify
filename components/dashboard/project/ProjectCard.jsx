@@ -25,7 +25,7 @@ export const ProjectCard = ({
   return (
     <motion.div
       className={cn(
-        'rounded p-4 bg-white hover:bg-[ghostWhite] gap-1 flex flex-col justify-between',
+        'rounded p-4 bg-white hover:bg-[ghostWhite] gap-1 flex flex-col justify-between shadow',
         isSelected && 'bg-[ghostWhite]',
         !isSelected && 'border'
       )}

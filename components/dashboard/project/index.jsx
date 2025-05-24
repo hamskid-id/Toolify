@@ -14,7 +14,7 @@ import { motion } from 'framer-motion'
 import { ProjectCard } from './ProjectCard'
 import { ProjectDescription } from '../shared/ProjectDescription'
 import { useState } from 'react'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 
 const projectStatuses = [
   { id: 'all', label: 'All Projects', icon: Layers },
@@ -234,7 +234,7 @@ export const AllProjects = () => {
 
   return (
     <DashboardLayout>
-      <div className='bg-[ghostWhite] py-6 px-4 md:px-8'>
+      <div className='bg-[ghostWhite] py-6 px-3 md:px-8'>
         {/* Breadcrumb */}
         <div className='flex items-center text-sm text-gray-500'>
           <Link href='/dashboard' className='hover:text-gray-700'>
@@ -267,6 +267,7 @@ export const AllProjects = () => {
               <span>{tab.label}</span>
             </button>
           ))}
+          <ScrollBar orientation="horizontal" />
         </ScrollArea>
 
         {/* Projects Grid */}

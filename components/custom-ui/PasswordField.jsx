@@ -25,11 +25,11 @@ export const PasswordInput = ({
       prevState === 'password' ? 'text' : 'password'
     )
   const inputCnStyle = cn(
-    `md:text-md text-md font-[400] border border-grey-400 h-[50px] rounded-sm flex items-center shadow-none`,
+    `md:text-sm text-sm font-[400] border border-grey-400 h-[50px] rounded-sm flex items-center shadow-none`,
     inputStyle
   )
 
-  const inputLabelStyle = cn(`text-[14px] font-[500]`, labelStyle)
+  const inputLabelStyle = cn(`text-sm font-[500]`, labelStyle)
 
   return (
     <FormField

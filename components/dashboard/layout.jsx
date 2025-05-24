@@ -36,6 +36,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Sheet, SheetTrigger } from '@/components/ui/sheet'
 import NotificationsSheet from './NotificationSheet'
+import { MobileNav } from './mobileNav'
 
 const generalItems = [
   {
@@ -153,7 +154,6 @@ export default function DashboardLayout({ children }) {
       <main className='relative w-full'>
         <header className='sticky top-0 z-10 w-full bg-[ghostWhite]'>
           <div className='flex h-14 items-center justify-between px-4 w-full'>
-            <SidebarTrigger className='md:hidden block' />
             <div className='flex gap-3 items-center text-[12xp] font-[500]'>
               <HomeIcon className='w-5 h-5' />
               {'Dashboard'}
@@ -194,7 +194,7 @@ export default function DashboardLayout({ children }) {
           </div>
         </header>
 
-        <div className='container'>{children}</div>
+        <div className='container md:mb-0 mb-[3rem] relative'>{children}<MobileNav/></div>
       </main>
     </SidebarProvider>
   )

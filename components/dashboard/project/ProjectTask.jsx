@@ -489,7 +489,7 @@ export const ProjectTasks = () => {
         {activeView !== 'members' && (
           <div
             onClick={handleOpenModal}
-            className='border-dotted bg-white border-indigo-600 border-2 py-2 rounded-md flex items-center justify-center text-center text-sm text-indigo-600 w-fit px-4 cursor-pointer ms-auto'
+            className='bg-indigo-600 border-indigo-600 border-2 py-2 rounded-md flex items-center justify-center text-center text-sm text-white w-fit px-4 cursor-pointer ms-auto'
           >
             <Text>+ Add new task</Text>
           </div>
