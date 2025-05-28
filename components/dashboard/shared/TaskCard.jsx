@@ -25,7 +25,7 @@ export const TaskCard = ({
   return (
     <motion.div
       className={cn(
-        'rounded p-4 bg-[ghostWhite] shadow hover:shadow-sm transition-shadow gap-4 flex flex-wrap justify-between items-center cursor-pointer',
+        'rounded-md p-4 bg-[ghostWhite] gap-4 flex flex-wrap justify-between items-center cursor-pointer',
         isSelected && 'bg-[ghostWhite]',
         !isSelected && 'border border-gray-300'
       )}

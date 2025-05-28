@@ -267,7 +267,7 @@ export const AllProjects = () => {
               <span>{tab.label}</span>
             </button>
           ))}
-          <ScrollBar orientation="horizontal" />
+          <ScrollBar orientation='horizontal' />
         </ScrollArea>
 
         {/* Projects Grid */}
@@ -284,6 +284,8 @@ export const AllProjects = () => {
                 {sampleProjects[activeTab].map((project) => (
                   <ProjectCard
                     key={project.id}
+                    tasks={project.tasks}
+                    members={project.members}
                     {...project}
                     isSelected={selectedProject?.id === project.id}
                     onClick={() => setSelectedProject(project)}

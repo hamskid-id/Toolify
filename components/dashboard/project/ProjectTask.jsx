@@ -466,7 +466,7 @@ export const ProjectTasks = () => {
 
   return (
     <DashboardLayout>
-      <div className='bg-[ghostWhite] py-6 px-4 md:px-8 flex flex-col gap-3'>
+      <div className='bg-[ghostWhite] py-6 px-3 md:px-8 flex flex-col gap-3'>
         {/* Breadcrumb */}
         <div className='flex items-center text-sm text-gray-500'>
           <Link href='/dashboard' className='hover:text-gray-700'>

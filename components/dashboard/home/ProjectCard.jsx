@@ -18,7 +18,7 @@ export const ProjectCard = ({
   const router = useRouter()
   return (
     <motion.div
-      className='rounded p-4 bg-[ghostWhite] hover:shadow-sm transition-shadow gap-4 flex flex-wrap justify-between items-center cursor-pointer'
+      className='rounded-md p-4 bg-[ghostWhite] hover:shadow-sm transition-shadow gap-4 flex flex-wrap justify-between items-center cursor-pointer'
       whileHover={{ y: -2 }}
       onClick={() => router.push(`/dashboard/projects/${id}`)}
     >

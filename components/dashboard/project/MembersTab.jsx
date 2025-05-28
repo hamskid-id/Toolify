@@ -1,15 +1,22 @@
 'use client'
 
 import { useState } from 'react'
-import { Users, Edit, Trash, Mail, Phone, UserPlus } from 'lucide-react'
+import {
+  Users,
+  Edit,
+  Trash,
+  Mail,
+  Phone,
+  UserPlus,
+  Check,
+  X,
+} from 'lucide-react'
 import { Text } from '@/components/shared/Text'
 import { motion } from 'framer-motion'
 import { ModalWrapper } from '@/components/custom-ui/Modal'
 import UserAvatar from '@/components/shared/UserAvatar'
 import InviteMemberModal from './InviteMemberModal'
 
-// Sample members data based on the existing tasks data structure
-// In a real application, this would likely come from an API or context
 const initialMembers = [
   {
     id: 1,
@@ -138,29 +145,107 @@ const MemberCard = ({ member, onSelect }) => {
   )
 }
 
-// Member details component to show when a member is selected
-const MemberDetails = ({ member, onClose }) => {
+const MemberDetails = ({ member, onClose, onUpdateMember }) => {
+  const [isEditingRole, setIsEditingRole] = useState(false)
+  const [editedRole, setEditedRole] = useState(member.role)
+
+  // Predefined roles that admins can choose from
+  const availableRoles = [
+    'Frontend Developer',
+    'Backend Developer',
+    'Full Stack Developer',
+    'UX Designer',
+    'UI Designer',
+    'Product Designer',
+    'Project Manager',
+    'DevOps Engineer',
+    'QA Engineer',
+    'Data Analyst',
+    'Marketing Specialist',
+    'Content Writer',
+  ]
+
+  const handleEditRole = () => {
+    setIsEditingRole(true)
+    setEditedRole(member.role)
+  }
+
+  const handleSaveRole = () => {
+    if (editedRole.trim() && editedRole !== member.role) {
+      // Call the parent component's update function
+      onUpdateMember({ ...member, role: editedRole.trim() })
+    }
+    setIsEditingRole(false)
+  }
+
+  const handleCancelEdit = () => {
+    setEditedRole(member.role)
+    setIsEditingRole(false)
+  }
+
+  const handleRoleChange = (e) => {
+    setEditedRole(e.target.value)
+  }
+
   return (
     <div className='bg-white rounded-lg shadow p-6'>
       <div className='flex justify-between items-start mb-6'>
-        <div className='flex items-center space-x-4'>
-          
+        <div className='w-full flex items-center space-x-4'>
           <UserAvatar imageSrc={member.image} name={member.name} />
-          <div>
-            <Text as='h2' style='text-xl font-semibold text-gray-800'>
-              {member.name}
-            </Text>
-            <Text style='text-indigo-600'>{member.role}</Text>
+          <div className="flex-grow">
+            <div className='flex justify-between items-center w-full'>
+              <Text as='h2' style='text-xl font-semibold text-gray-800'>
+                {member.name}
+              </Text>
+              <div>
+                <button className='p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full transition-colors'>
+                  <Trash className='w-5 h-5' />
+                </button>
+              </div>
+            </div>
+            {/* Editable Role Section */}
+            {isEditingRole ? (
+              <div className='flex items-center space-x-2 mt-1'>
+                <select
+                  value={editedRole}
+                  onChange={handleRoleChange}
+                  className='text-indigo-600 bg-white border border-indigo-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500'
+                  autoFocus
+                >
+                  {availableRoles.map((role) => (
+                    <option key={role} value={role}>
+                      {role}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={handleSaveRole}
+                  className='p-1 text-green-600 hover:text-green-700 hover:bg-green-50 rounded transition-colors'
+                  title='Save'
+                >
+                  <Check className='w-4 h-4' />
+                </button>
+                <button
+                  onClick={handleCancelEdit}
+                  className='p-1 text-gray-500 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors'
+                  title='Cancel'
+                >
+                  <X className='w-4 h-4' />
+                </button>
+              </div>
+            ) : (
+              <div className='flex items-center space-x-2 group'>
+                <Text style='text-indigo-600'>{member.role}</Text>
+                <button
+                  onClick={handleEditRole}
+                  className='opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded transition-all'
+                  title='Edit role'
+                >
+                  <Edit className='w-3 h-3' />
+                </button>
+              </div>
+            )}
           </div>
-        </div>
-
-        <div className='flex space-x-2'>
-          <button className='p-2 text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-full transition-colors'>
-            <Edit className='w-5 h-5' />
-          </button>
-          <button className='p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full transition-colors'>
-            <Trash className='w-5 h-5' />
-          </button>
         </div>
       </div>
 
@@ -321,9 +406,12 @@ export const MembersTab = () => {
             </Text>
           </div>
 
-          <button onClick={()=>setOpenAddMemberModal(true)} className='flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors text-md'>
+          <button
+            onClick={() => setOpenAddMemberModal(true)}
+            className='flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors text-md'
+          >
             <UserPlus className='w-4 h-4' />
-            <span className="text-sm">Add Member</span>
+            <span className='text-sm'>Add Member</span>
           </button>
         </div>
 
@@ -356,6 +444,7 @@ export const MembersTab = () => {
           <MemberDetails
             member={selectedMember}
             onClose={() => setSelectedMember(null)}
+            onUpdateMember={() => console.log('hello')}
           />
         ) : (
           <div className='bg-white rounded-lg p-8 text-center'>
@@ -369,7 +458,7 @@ export const MembersTab = () => {
         open={openAddMemberModal}
         setOpen={setOpenAddMemberModal}
       >
-       <InviteMemberModal/>
+        <InviteMemberModal />
       </ModalWrapper>
     </div>
   )
