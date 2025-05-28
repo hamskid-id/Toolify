@@ -8,7 +8,7 @@ export const MobileNav = () => {
   const generalItems = [
     {
       title: 'Home',
-      url: '#',
+      url: '',
       icon: Home,
     },
     {
